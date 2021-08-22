@@ -4,6 +4,8 @@ create_links()
 	src_dir="$1"
 	out_dir="$2"
 
+	mkdir -p "$out_dir"
+
 	for f in $src_dir/*.vim
 	do
 		out_file="$out_dir/$(basename $f)"
@@ -20,14 +22,13 @@ copy_vimrc()
 	mkdir -p "$outdir"
 	echo "./init.vim -> $outfile"
 	cp ./init.vim "$outfile"
-	mkdir -p "$outdir/plugin"
-	create_links ./plugin $outdir/plugin
 }
 
 if [ "`nvim --version`" ]
 then
 	echo "nvim is installed"
 	copy_vimrc ~/.config/nvim "init.vim"
+	create_links ./include ~/.config/nvim/include
 else
 	echo "nvim not installed"
 fi

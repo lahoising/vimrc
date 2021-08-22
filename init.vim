@@ -23,3 +23,7 @@ call plug#begin("~/.vim/plugged")
 	endif
 
 call plug#end()
+
+source include/colors.vim
+source include/filetree.vim
+source include/lsp.vim
