@@ -7,6 +7,8 @@ set incsearch
 set scrolloff=8
 set signcolumn=yes
 set shiftwidth=4
+set noswapfile
+set nobackup
 
 call plug#begin("~/.vim/plugged")
     Plug 'ayu-theme/ayu-vim'		" ayu theme

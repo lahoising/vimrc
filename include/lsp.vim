@@ -2,6 +2,7 @@ if has('nvim') && v:version >= 800
 	
 lua << EOF
 	require('lspconfig').clangd.setup{}
+	require('lspconfig').pyright.setup{}
 	
 	require'compe'.setup {
 	  enabled = true;
@@ -100,7 +101,7 @@ lua << EOF
 
 	-- Use a loop to conveniently call 'setup' on multiple servers and
 	-- map buffer local keybindings when the language server attaches
-	local servers = { 'clangd' }
+	local servers = { 'clangd', 'pyright' }
 	for _, lsp in ipairs(servers) do
 	  nvim_lsp[lsp].setup {
 		on_attach = on_attach,
