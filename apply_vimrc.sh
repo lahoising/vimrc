@@ -28,7 +28,7 @@ if [ "`nvim --version`" ]
 then
 	echo "nvim is installed"
 	copy_vimrc ~/.config/nvim "init.vim"
-	create_links ./include ~/.config/nvim/include
+	create_links `pwd`/include ~/.config/nvim/include
 else
 	echo "nvim not installed"
 fi

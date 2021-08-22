@@ -24,6 +24,6 @@ call plug#begin("~/.vim/plugged")
 
 call plug#end()
 
-source include/colors.vim
-source include/filetree.vim
-source include/lsp.vim
+runtime include/colors.vim
+runtime include/filetree.vim
+runtime include/lsp.vim
