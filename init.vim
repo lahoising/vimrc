@@ -14,6 +14,8 @@ call plug#begin("~/.vim/plugged")
 	Plug 'ayu-theme/ayu-vim'		" ayu theme
 	Plug 'preservim/nerdtree'		" file tree
 	Plug 'puremourning/vimspector', { 'do': 'python3 install_gadget.py --enable-c --enable-cpp --force-enable-csharp --enable-python' }  " debugging 
+	Plug 'OmniSharp/omnisharp-roslyn', { 'do': './build.sh --target Install --configuration Release' } " omnisharp
+
 	" if we are using neovim with version >= 0.5
 	if has('nvim') && v:version >= 800
 		Plug 'neovim/nvim-lspconfig'	" lsp
