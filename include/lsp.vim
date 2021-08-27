@@ -3,6 +3,12 @@ if has('nvim') && v:version >= 800
 lua << EOF
 	require('lspconfig').clangd.setup{}
 	require('lspconfig').pyright.setup{}
+
+	local omnisharp_bin = "/home/luis/.omnisharp/OmniSharp.Stdio.Driver/OmniSharp.exe"
+	local pid = vim.fn.getpid()
+	require('lspconfig').omnisharp.setup{
+		cmd = {'mono', omnisharp_bin, '--localserver', '--hostPID', tostring(pid)};
+	}
 	
 	require'compe'.setup {
 	  enabled = true;
