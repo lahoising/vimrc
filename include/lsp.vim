@@ -1,15 +1,6 @@
 if has('nvim') && v:version >= 800
 lua << EOF
 
-	require('lspconfig').clangd.setup{}
-	require('lspconfig').pyright.setup{}
-
-	local omnisharp_bin = "/home/luis/.omnisharp/OmniSharp.Stdio.Driver/OmniSharp.exe"
-	local pid = vim.fn.getpid()
-	require('lspconfig').omnisharp.setup{
-		cmd = {'mono', omnisharp_bin, '-lsp'};
-	}
-
 	require'compe'.setup {
 		enabled = true;
 		autocomplete = true;
@@ -105,17 +96,29 @@ lua << EOF
 
 	end
 
-	-- Use a loop to conveniently call 'setup' on multiple servers and
-	-- map buffer local keybindings when the language server attaches
-	local servers = { 'clangd', 'pyright' }
-	for _, lsp in ipairs(servers) do
-		nvim_lsp[lsp].setup {
-			on_attach = on_attach,
-			flags = {
-				debounce_text_changes = 150,
-			}
+	require('lspconfig').clangd.setup{
+		on_attach = on_attach,
+		flags = {
+			debounce_text_changes = 150,
 		}
-	end
+	}
+	require('lspconfig').pyright.setup{
+		on_attach = on_attach,
+		flags = {
+			debounce_text_changes = 150,
+		}
+	}
+
+	local omnisharp_bin = "/home/luis/.omnisharp/OmniSharp.Stdio.Driver/OmniSharp.exe"
+	local pid = vim.fn.getpid()
+	require('lspconfig').omnisharp.setup{
+		cmd = {'mono', omnisharp_bin, "--languageserver", "--hostPID", tostring(pid)};
+		root_dir = nvim_lsp.util.root_pattern("*.csproj", "*.sln");
+		on_attach = on_attach;
+		flags = {
+			debounce_text_changes = 150,
+		};
+	}
 
 EOF
 else
