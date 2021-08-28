@@ -7,7 +7,7 @@ if [ -n "$(cat /etc/os-release | egrep "fedora|Fedora")" ]
 then
 	pm=dnf
 	pm_update=check-update
-	clang_pack=clang
+	clang_pack=clang-tools-extra
 fi
 
 # install vim plug
