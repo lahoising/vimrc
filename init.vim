@@ -19,7 +19,8 @@ call plug#begin("~/.vim/plugged")
 	" if we are using neovim with version >= 0.5
 	if has('nvim') && v:version >= 800
 		Plug 'neovim/nvim-lspconfig'	" lsp
-		Plug 'hrsh7th/nvim-compe'		" autocompletion
+		Plug 'hrsh7th/nvim-cmp'		" autocompletion
+		Plug 'hrsh7th/cmp-buffer'	" required by nvim-cmp
 	else
 		Plug 'ycm-core/YouCompleteMe'   " autocompletion
 		Plug 'sheerun/vim-polyglot'     " syntax highlighting
