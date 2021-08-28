@@ -52,4 +52,4 @@ fi
 sudo npm install -g npm@next pyright
 
 # vimspector requires python
-python3 -m pip install --user --upgrade pynvim
+python3 -m pip install --user --upgrade pynvim neovim-remote
