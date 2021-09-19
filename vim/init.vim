@@ -13,6 +13,7 @@ set nobackup
 call plug#begin()
 	Plug 'preservim/nerdtree'
 	Plug 'ayu-theme/ayu-vim'
+	Plug 'ycm-core/YouCompleteMe', {'do': './install.py --clangd-completer' }
 call plug#end()
 
 set termguicolors
@@ -21,5 +22,9 @@ let ayucolor="mirage" " for mirage version of theme
 " let ayucolor="dark"   " for dark version of theme
 colorscheme ayu
 
-nnoremap <C-E> :NERDTreeToggle<CR>
-nnoremap <C-F> :NERDTreeFind<CR>
+nnoremap <C-e> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+nnoremap <space>gd :YcmCompleter GoTo<CR>
+nnoremap <space>gr :YcmCompleter GoToReferences<CR>
+nnoremap <space>r :YcmCompleter RefactorRename 
