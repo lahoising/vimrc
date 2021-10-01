@@ -14,9 +14,10 @@ cmp.setup({
 	}
 })
 
--- require'lspconfig'.clangd.setup{
--- 	capabilities = require('cmp_nvim_lsp').update_capabilities(\
--- 		vim.lsp.protocol.make_client.capabilities()\
--- 	)
--- }
-require'lspconfig'.clangd.setup{}
+local on_attach = function(client,bufnr)
+	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+	local opts = { noremap=true, silent=true }
+	buf_set_keymap('n', '<space>gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+end
+
+require'lspconfig'.clangd.setup{ on_attach = on_attach }
