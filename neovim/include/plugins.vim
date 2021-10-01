@@ -5,4 +5,5 @@ call plug#begin()
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-buffer'
 	Plug 'hrsh7th/nvim-cmp'
+	Plug 'puremourning/vimspector', {'do': 'install_gadget.py --enable-c'}
 call plug#end()
