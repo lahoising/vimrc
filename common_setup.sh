@@ -38,12 +38,12 @@ then
 	echo "manjaro"
 	pm=pacman
 	pm_ins=-S
-	packages_to_install="$packages_to_install python3"
+	packages_to_install="$packages_to_install python3 python-pip"
 elif [ $(isDistro "Ubuntu") ]
 then
 	echo "ubuntu"
 	pm=apt
-	packages_to_install="$packages_to_install python3-dev"
+	packages_to_install="$packages_to_install python3-dev python3-pip"
 else
 	echo "fedora"
 	packages_to_install="$packages_to_install python3-devel"
@@ -51,3 +51,6 @@ fi
 
 # you complete me essentials
 sudo $pm $pm_ins $packages_to_install
+
+# pynvim for vimspector
+python3 -m pip install --user --upgrade pynvim
