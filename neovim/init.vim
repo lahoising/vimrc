@@ -28,7 +28,4 @@ colorscheme ayu
 nnoremap <C-e> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-runtime 'include/lsp.lua'
-lua << EOF
-require'lspconfig'.clangd.setup{}
-EOF
+runtime include/lsp.lua
