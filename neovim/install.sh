@@ -13,6 +13,7 @@ out_inc_dir="$out_dir/include"
 mkdir -p "$out_inc_dir"
 
 inc_files="$src_include/*.lua"
+inc_files="$inc_files $src_include/*.vim"
 for f in $inc_files
 do
 	filename="$(basename $f)"
