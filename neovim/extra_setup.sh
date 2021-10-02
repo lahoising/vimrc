@@ -1,26 +1,23 @@
 #!/bin/bash
 
-function isDistro
-{
-	res="$(cat /etc/os-release | egrep "$1")"
-	if [ -n "$res" ]
-	then
-		echo 1
-	else
-		echo 0
-	fi
-}
+script_dir=${0%/*}
+source "$script_dir/../utils.sh"
 
-pm=dnf
-pm_ins=-S
+# vim plug - neovim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+	   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 packages_to_install=""
 
-if [ $(isDistro "Manjaro") ]
+if $(isDistro "Manjaro")
 then
-	pm=pacman
-	pm_ins=-S
-	packages_to_install="clang"
+	packages_to_install="clang python-pip" 
+elif $(isDistro "Ubuntu")
+then
+	packages_to_install="clangd python3-pip"
+	sudo apt update
 fi
 
 sudo $pm $pm_ins $packages_to_install
+
+python3 -m pip install --user --upgrade pynvim
