@@ -21,6 +21,8 @@ local on_attach = function(client,bufnr)
 	local opts = { noremap=true, silent=true }
 	buf_set_keymap('n', '<Leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 	buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+	buf_set_keymap('n', '<Leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+	buf_set_keymap('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 end
 
 require'lspconfig'.clangd.setup{ on_attach = on_attach }
