@@ -1,0 +1,5 @@
+nnoremap <leader>dd vimspector#Launch()
+nnoremap <leader>dj vimspector#SetInto()
+nnoremap <leader>dk vimspector#StepOut()
+nnoremap <leader>dl vimspector#Continue()
+nnoremap <leader>de vimspector#Reset()

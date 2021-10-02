@@ -9,3 +9,4 @@ set signcolumn=yes
 set shiftwidth=4
 set noswapfile
 set nobackup
+let mapleader=" "
