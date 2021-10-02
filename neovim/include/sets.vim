@@ -9,4 +9,6 @@ set signcolumn=yes
 set shiftwidth=4
 set noswapfile
 set nobackup
+
+nnoremap <SPACE> <Nop>
 let mapleader=" "
