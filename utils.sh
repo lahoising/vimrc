@@ -14,7 +14,11 @@ function isDistro
 pm=dnf
 pm_ins=install
 
-if $(isDistro "Ubuntu")
+if $(isDistro "Manjaro")
+then
+	pm="pacman"
+	pm_ins="-S"
+elif $(isDistro "Ubuntu")
 then
 	pm=apt
 fi
