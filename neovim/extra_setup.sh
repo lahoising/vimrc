@@ -11,7 +11,7 @@ packages_to_install=""
 
 if $(isDistro "Manjaro")
 then
-	packages_to_install="clang python-pip" 
+	packages_to_install="clang python-pip nodejs npm" 
 elif $(isDistro "Ubuntu")
 then
 	if [ -z "$(which dotnet)" ]
@@ -32,15 +32,14 @@ then
 fi
 
 sudo $pm $pm_ins $packages_to_install
+sudo npm install -g pyright
 python3 -m pip install --user --upgrade pynvim
 
 # omnisharp-roslyn
-omnisharp_repo_dir=./downloaded/omnisharp
-mkdir -p "${omnisharp_repo_dir}"
-pushd "${omnisharp_repo_dir}"
-
 omnisharp_out_tar="omnisharp.tar.gz"
-curl -L https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.37.16/omnisharp-linux-x64.tar.gz -o "${omnisharp_out_tar}"
-omni_bin_dir="omnisharp"
+curl -L https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.37.16/omnisharp-mono.tar.gz -o "${omnisharp_out_tar}"
+omni_bin_dir=~/.omnisharp
+mkdir -p "${omni_bin_dir}"
+rm -rf "${omni_bin_dir}/*"
 tar -xvf "${omnisharp_out_tar}" -C "${omni_bin_dir}"
-popd
+rm "${omnisharp_out_tar}"
