@@ -18,7 +18,7 @@ if $(isDistro "Manjaro")
 then
 	pm="pacman"
 	pm_ins="-S"
-elif $(isDistro "Ubuntu")
+elif $(isDistro "Ubuntu") || $(isDistro "Pop")
 then
 	pm=apt
 fi

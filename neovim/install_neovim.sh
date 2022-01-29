@@ -17,7 +17,7 @@ function install_from_source
 if $(isDistro "Manjaro")
 then
 	sudo pacman -S neovim
-elif $(isDistro "Ubuntu")
+elif $(isDistro "Ubuntu") || $(isDistro "Pop")
 then
 	sudo apt update
 	sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl

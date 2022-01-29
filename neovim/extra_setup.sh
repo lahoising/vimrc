@@ -1,6 +1,6 @@
 #!/bin/bash
 
-script_dir=${0%/*}
+script_dir="${BASH_SOURCE%/*}"
 source "$script_dir/../utils.sh"
 
 # vim plug - neovim
@@ -11,8 +11,8 @@ packages_to_install=""
 
 if $(isDistro "Manjaro")
 then
-	packages_to_install="clang python-pip nodejs npm" 
-elif $(isDistro "Ubuntu")
+	packages_to_install="clang python-pip" 
+elif $(isDistro "Ubuntu") || $(isDistro "Pop")
 then
 	if [ -z "$(which dotnet)" ]
 	then
@@ -24,14 +24,15 @@ then
 	sudo apt update
 	sudo apt install -y apt-transport-https gnupg ca-certificates
 
-	echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" | \
-		sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+	echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
 
-	packages_to_install="clangd python3-pip dotnet-sdk-5.0 mono-devel mono-complete mono-dbg"
+	packages_to_install="clangd python3-pip dotnet-sdk-5.0 mono-devel mono-complete mono-dbg snapd"
 	sudo apt update
 fi
 
 sudo $pm $pm_ins $packages_to_install
+sudo snap install --classic node
 sudo npm install -g pyright
 python3 -m pip install --user --upgrade pynvim
 

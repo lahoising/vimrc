@@ -1,6 +1,7 @@
 #!/bin/bash
 
-script_dir=${0%/*}
+script_dir="${BASH_SOURCE%/*}"
+echo "${script_dir}"
 source $script_dir/utils.sh
 
 packages_to_install="cmake gcc make"
@@ -9,7 +10,7 @@ if $(isDistro "Manjaro")
 then
 	echo "manjaro"
 	packages_to_install="$packages_to_install python3"
-elif $(isDistro "Ubuntu")
+elif $(isDistro "Ubuntu") || $(isDistro "Pop")
 then
 	echo "ubuntu"
 	packages_to_install="$packages_to_install python3-dev"
