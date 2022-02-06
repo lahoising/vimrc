@@ -1,6 +1,7 @@
 call plug#begin()
 	Plug 'preservim/nerdtree'
 
+	Plug 'xiyaowong/nvim-transparent'
 	Plug 'ayu-theme/ayu-vim'
 
 	Plug 'neovim/nvim-lspconfig'
@@ -15,4 +16,6 @@ call plug#begin()
 	Plug 'rafamadriz/friendly-snippets'
 
 	Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-c'}
+
+	Plug 'lahoising/nvim_utils_plug'
 call plug#end()
