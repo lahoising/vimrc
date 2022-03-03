@@ -35,3 +35,11 @@ end
 
 require'lspconfig'.clangd.setup{ on_attach = on_attach }
 require'lspconfig'.pyright.setup{ on_attach = on_attach }
+require'lspconfig'.rls.setup{ 
+	on_attach = on_attach,
+	settings = {
+		rust = {
+			all_features = true
+		}
+	}
+}
