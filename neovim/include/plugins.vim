@@ -15,7 +15,7 @@ call plug#begin()
 	Plug 'hrsh7th/vim-vsnip'
 	Plug 'rafamadriz/friendly-snippets'
 
-	Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-c --enable-python'}
+	Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-c --enable-python --force-enable-java'}
 
 	Plug 'lahoising/nvim_utils_plug'
 call plug#end()

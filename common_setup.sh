@@ -22,3 +22,6 @@ fi
 
 # you complete me essentials
 sudo $pm $pm_ins $packages_to_install
+
+# venv
+sudo pip3 install virtualenv
