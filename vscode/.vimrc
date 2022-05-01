@@ -1,7 +1,6 @@
 let mapleader = " "
 
 nnoremap <silent> <leader>r editor.action.rename
-
 nnoremap <silent> K editor.action.showHover
 nnoremap <silent> <C-b> workbench.view.explorer
 
