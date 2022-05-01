@@ -1,0 +1,11 @@
+{
+	"header guard": {
+		"prefix": "ifndefguard",
+		"body": [
+			"#ifndef $1",
+			"#define $1",
+			"#endif"
+		],
+		"description": "Add the traditional header guard"
+	}
+}
