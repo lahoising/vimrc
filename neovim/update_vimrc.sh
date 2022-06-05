@@ -1,7 +1,13 @@
 home_dir=~
 vimrc=init.vim
 
-out_dir=$home_dir/.config/nvim
+source ../utils.sh
+
+if isOs linux; then
+	out_dir=$home_dir/.config/nvim
+elif isOs windows; then
+	out_dir="$home_dir/AppData/Local/nvim"
+fi
 mkdir -p $out_dir
 
 out_vimrc=$out_dir/init.vim

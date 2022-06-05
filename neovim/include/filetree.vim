@@ -1,2 +1,2 @@
-nnoremap <silent> <C-e> :NERDTreeToggle<CR>
+nnoremap <silent> <M-e> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1
