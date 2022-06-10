@@ -26,12 +26,12 @@ cmp.DocumentationConfig = {}
 local on_attach = function(client,bufnr)
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-	local opts = { noremap=true, silent=true, buffer=bufnr }
-	vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-	vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-	vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-	vim.keymap.set('n', '<Leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-	vim.keymap.set('n', '<Leader>f', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+	local bufopts = { noremap=true, silent=true, buffer=bufnr }
+	vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', bufopts)
+	vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', bufopts)
+	vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', bufopts)
+	vim.keymap.set('n', '<Leader>r', vim.lsp.buf.rename, bufopts)
+	vim.keymap.set('n', '<Leader>f', '<cmd>lua vim.lsp.buf.code_action()<CR>', bufopts)
 end
 
 require'lspconfig'.clangd.setup{ on_attach = on_attach }
