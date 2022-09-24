@@ -8,6 +8,7 @@ function isOs {
 		Linux*)		if [ "$1" == linux ]; then correct=true; fi;;
 		CYGWIN*)	if [ "$1" == windows ]; then correct=true; fi;;
 		MINGW*)		if [ "$1" == windows ]; then correct=true; fi;;
+		MSYS*)		if [ "$1" == windows ]; then correct=true; fi;;
 	esac
 
 	$correct

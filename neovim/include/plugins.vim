@@ -4,6 +4,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'xiyaowong/nvim-transparent'
 	Plug 'ayu-theme/ayu-vim'
 
+	# Plug 'williamboman/nvim-lsp-installer'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'hrsh7th/cmp-nvim-lsp'
